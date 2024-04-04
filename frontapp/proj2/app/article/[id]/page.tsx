@@ -1,8 +1,9 @@
 "use client"
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react"
+import Link from "next/link";
 type articleInterface  = {
-    id: number,
+    id: string,
     createdDate: string,
     modifiedDate: string,
     subject: string,
@@ -25,6 +26,9 @@ export default function Article (){
         <h1>|| {article?.id} 번 게시글 ||</h1>
             <div>
                 <span>{article?.id} || {article?.subject} || {article?.content} || {article?.createdDate} || {article?.modifiedDate}</span>
+            </div>
+            <div>
+            <Link href={`/article/${article?.id}/patch`}>🍇수정하기</Link>
             </div>
         </>
     )

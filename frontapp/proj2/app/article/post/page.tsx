@@ -29,6 +29,8 @@ function ArticleForm(){
     if (response.ok) {
       alert("게시물이 등록 됐습니다.")
       router.push("/article")
+    }else{
+      alert("게시물 등록에 실패했습니다.")
     }
   }
   function handleChange(e: any) {
@@ -40,10 +42,10 @@ function ArticleForm(){
   return(
     <form onSubmit={handleSubmit} >
     <span>제목입력</span>
-    <input type="text" name="subject" onChange={handleChange} />
+    <input type="text" name="subject" onChange={handleChange}  className="inputer" />
     <br />
     <span>내용입력</span>
-    <input type="text" name="content" onChange={handleChange}  />
+    <input type="text" name="content" onChange={handleChange}  className="inputer" />
     <br />
     <button>등록</button>
   </form>
