@@ -20,7 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           <Link href={'/'}>홈으로</Link> <span> | </span>
-          <Link href={'/article'}>게시글로</Link>
+          <Link href={'/article'}>게시글로</Link> <span> | </span>
+          <Link href={'/article/post'}>게시글 등록하기</Link>
         </div>
         {children}
         </body>
