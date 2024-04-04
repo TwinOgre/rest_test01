@@ -21,7 +21,7 @@ public class ArticleService {
     }
 
     @Transactional
-    public Article createArticle(String subject, String content){
+    public Article createArticle(String subject, String content) {
         Article article = Article.builder()
                 .subject(subject)
                 .content(content)
@@ -44,12 +44,21 @@ public class ArticleService {
         this.articleRepository.save(article1);
         return RsData.of(
                 "S-4",
-                "수정 성공",
+                "%d번 게시글 수정 성공".formatted(article1.getId()),
                 article1
         );
     }
 
     public Optional<Article> findById(Long id) {
         return this.articleRepository.findById(id);
+    }
+
+    public RsData<Article> deleteArticle(Article article) {
+        this.articleRepository.delete(article);
+        return RsData.of(
+                "S-5",
+                "%d번 게시글 삭제 성공".formatted(article.getId()),
+                null
+        );
     }
 }
