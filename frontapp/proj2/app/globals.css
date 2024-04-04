@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  padding-left: 100px;
+  padding-top: 100px;
+}
+div {
+  margin-top: 10px;
+}
