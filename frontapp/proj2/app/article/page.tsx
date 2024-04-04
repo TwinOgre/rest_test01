@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 interface articlesInterface {
     id: number,
     createdDate: string,
@@ -26,7 +27,7 @@ export default function Article() {
         <>
             <h1>||게시글 목록||</h1>
             <ul>
-                {articles.map(article => (<li key={article.id}>|{article.id}|번 |{article.subject}|{article.content}|{article.createdDate}</li>))}
+                {articles.map(article => (<li key={article.id}>|{article.id}|번 |<Link href={`/article/${article.id}`}>{article.subject}</Link>|{article.content}|{article.createdDate}</li>))}
             </ul>
         </>
     )
