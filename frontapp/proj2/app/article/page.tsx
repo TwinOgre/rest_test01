@@ -1,8 +1,9 @@
 "use client"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import deleteArticle from "../component/Delete"
 interface articlesInterface {
-    id: number,
+    id: string,
     createdDate: string,
     modifiedDate: string,
     subject: string,
@@ -27,7 +28,7 @@ export default function Article() {
         <>
             <h1>||게시글 목록||</h1>
             <ul>
-                {articles.map(article => (<li key={article.id}>|{article.id}|번 |<Link href={`/article/${article.id}`}>{article.subject}</Link>|{article.content}|{article.createdDate}</li>))}
+                {articles.map(article => (<li key={article.id}>|{article.id}|번 |<Link href={`/article/${article.id}`}>{article.subject}</Link>|{article.content}|{article.createdDate} <button onClick={() => deleteArticle(article.id)}>❌삭제하기</button></li>))}
             </ul>
         </>
     )
